@@ -33,8 +33,8 @@
   tasks:
     - name: Create (or delete) tenant
       aci_tenant:
-        hostname: '{{ apic.hostname }}'
-        username: '{{ apic.username }}'
+        hostname: '{{ inventory_hostname }}'
+        username: '{{ username }}'
         password: '{{ password }}'
         validate_certs: '{{ validate_certs }}'
         tenant: '{{ tenant }}'
