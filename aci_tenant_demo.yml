@@ -15,7 +15,7 @@
 #                              -e "password=bigsecret desired_state=absent"
 #
 - name: Create (or delete) a tenant in ACI
-  hosts:  localhost
+  hosts:  both
   connection: local
   gather_facts: no
 
