@@ -33,14 +33,13 @@
     #                    set additional variables as key=value or YAML/JSON, if filename prepend with @
     #
     input: Marketing_M1a                                   # sample input file
-    tenant: tetration_policy_enforce                       # tenant name
+    tenant: '{{ tenant_name }}'                      # tenant name
     ap: foo                                                # application profile
     desired_state: present                                 # 'present' (to create) or 'absent' (to delete)
     scope: tenant                                          # 'application-profile' or 'tenant'
     reverse_filter: no                                     # 'yes' or 'no' should filter be reversed?
     log: log                                               # Determines if the binding should be set to log
     validate_certs: no                                     # certificate verify
-    password: '{{ apic.password }}'                        # specify the actual password as an extra var
 
   tasks:
     - name: Include input file
@@ -50,9 +49,9 @@
 #
     - name: Add (or delete) the contract
       aci_contract:
-        hostname: '{{ apic.hostname }}'
-        username: '{{ apic.username }}'
-        password: '{{ password }}'
+        hostname: sandboxapicdc.cisco.com
+        username: admin
+        password: ciscopsdt
         validate_certs: '{{ validate_certs }}'
         state: '{{ desired_state }}'
         #
@@ -65,9 +64,9 @@
 
     - name: Add the contract subject
       aci_contract_subject:
-        hostname: '{{ apic.hostname }}'
-        username: '{{ apic.username }}'
-        password: '{{ password }}'
+        hostname: sandboxapicdc.cisco.com
+        username: admin
+        password: ciscopsdt
         validate_certs: '{{ validate_certs }}'
         state: '{{ desired_state }}'      
         #
@@ -85,9 +84,9 @@
 #
     - name: Add (or delete) a filter to a tenant
       aci_filter:
-        hostname: '{{ apic.hostname }}'
-        username: '{{ apic.username }}'
-        password: '{{ password }}'
+        hostname: sandboxapicdc.cisco.com
+        username: admin
+        password: ciscopsdt
         validate_certs: '{{ validate_certs }}'
         state: '{{ desired_state }}'
         #
@@ -99,9 +98,9 @@
 
     - name: Add the filter entry to the filter
       aci_filter_entry:
-        hostname: '{{ apic.hostname }}'
-        username: '{{ apic.username }}'
-        password: '{{ password }}'
+        hostname: sandboxapicdc.cisco.com
+        username: admin
+        password: ciscopsdt
         validate_certs: '{{ validate_certs }}'
         state: '{{ desired_state }}'
         #
@@ -121,9 +120,9 @@
 #
     - name: Bind the filter to the contract subject
       aci_contract_subject_to_filter:
-        hostname: '{{ apic.hostname }}'
-        username: '{{ apic.username }}'
-        password: '{{ password }}'
+        hostname: sandboxapicdc.cisco.com
+        username: admin
+        password: ciscopsdt
         validate_certs: '{{ validate_certs }}'
         state: '{{ desired_state }}'
         #
