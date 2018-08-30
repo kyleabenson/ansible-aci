@@ -33,9 +33,9 @@
   tasks:
     - name: Create (or delete) tenant
       aci_tenant:
-        hostname: '{{ inventory_hostname }}'
-        username: '{{ username }}'
-        password: '{{ password }}'
+        hostname: sandboxapicdc.cisco.com
+        username: admin
+        password: ciscopsdt
         validate_certs: '{{ validate_certs }}'
         tenant: '{{ tenant }}'
         description: '{{ description }}'
