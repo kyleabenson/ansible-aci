@@ -44,4 +44,4 @@
     - name: Save tenant value for next play
       set_stats:
         data:
-          tenant_name:  '{{ tenant }}''
+          tenant_name:  '{{ tenant }}'
