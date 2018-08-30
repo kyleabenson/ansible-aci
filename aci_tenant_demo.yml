@@ -41,7 +41,7 @@
         description: '{{ description }}'
         state: '{{ desired_state }}'
 
-  - name: 'Artifact URL of test results to Tower Workflows'
-    set_stats:
-      data:
-        tenant_name:  '{{ tenant }}''
+    - name: Save tenant value for next play
+      set_stats:
+        data:
+          tenant_name:  '{{ tenant }}''
